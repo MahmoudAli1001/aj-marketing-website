@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+    --primary: 202 73% 52%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 168 35% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 73 43% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 202 73% 52%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-tajawal;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    color: #2d3748;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    direction: rtl;
+    text-align: right;
+  }
+}
+
+/* Add proper RTL support */
+@layer components {
+  .section-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .rtl-text {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .ltr-text {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* Enhanced heading styles with better line spacing */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 700;
+    line-height: 1.4; /* Increased from 1.2 for better spacing */
+    letter-spacing: -0.025em;
+    text-align: right;
+  }
+
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+    line-height: 1.3; /* Slightly tighter for large headings */
+  }
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+    line-height: 1.35;
+  }
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl;
+    line-height: 1.4;
+  }
+
+  p {
+    line-height: 1.8; /* Increased from 1.7 for better readability */
+    color: #4a5568;
+    text-align: right;
+  }
+
+  /* Service card hover effects with blue inset */
+  .service-card {
+    @apply transition-all duration-500 ease-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(54, 161, 215, 0.1) 0%, rgba(54, 161, 215, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    border-radius: inherit;
+    z-index: 1;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      inset 0 1px 0 rgba(54, 161, 215, 0.2),
+      inset 0 -1px 0 rgba(54, 161, 215, 0.1),
+      inset 1px 0 0 rgba(54, 161, 215, 0.1),
+      inset -1px 0 0 rgba(54, 161, 215, 0.1),
+      0 20px 40px rgba(54, 161, 215, 0.15),
+      0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .service-card-content {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+/* Enhanced Infinite scroll animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 1.5rem));
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(calc(-100% - 1.5rem));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 120s) var(--animation-direction, forwards) linear infinite;
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse 100s linear infinite;
+}
+
+/* Enhanced Custom shadows */
+@layer utilities {
+  .soft-shadow {
+    box-shadow: 0 4px 20px rgba(54, 161, 215, 0.08), 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .soft-shadow-hover {
+    box-shadow: 0 8px 30px rgba(54, 161, 215, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #36a1d7 0%, #66b19e 50%, #8bbb4c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Clean background - no patterns */
+  .clean-bg {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  }
+
+  .clean-bg-alt {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .section-container {
+    @apply px-4;
+  }
+  h1 {
+    @apply text-3xl;
+    line-height: 1.3;
+  }
+  h2 {
+    @apply text-2xl;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    @apply px-6;
+  }
+}
+
+/* Enhanced Focus States */
+*:focus {
+  outline: 2px solid #36a1d7;
+  outline-offset: 2px;
+}
+
+/* Enhanced Selection Styles */
+::selection {
+  background: rgba(54, 161, 215, 0.2);
+  color: #1a202c;
+}
+
+/* Enhanced Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #36a1d7, #66b19e);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #66b19e, #8bbb4c);
+}
