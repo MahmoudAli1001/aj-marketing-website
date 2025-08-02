@@ -1,83 +1,97 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { InfinitePartnersSlider } from "@/components/ui/infinite-partners-slider"
 import { Building2, Award, Users, Target, Zap, TrendingUp } from "lucide-react"
 
 export function PartnersSection() {
   const partners = [
     {
+      name: "جمعية الصحفيين",
+      logo: "/images/partners/logo_AJ (7).png",
+      category: "إعلامي",
+      description: "شراكة إعلامية متميزة",
+    },
+    {
       name: "وزارة الصحة",
-      logo: "/images/partners/ministry-health.png",
+      logo: "/images/partners/logo_AJ (1).png",
       category: "حكومي",
       description: "شريك موثوق في القطاع الصحي",
     },
     {
       name: "جامعة تبوك",
-      logo: "/images/partners/university-tabuk.png",
+      logo: "/images/partners/logo_AJ (2).png",
       category: "تعليمي",
       description: "شراكة أكاديمية متميزة",
     },
     {
       name: "مزارع أسترا",
-      logo: "/images/partners/astra-farms.png",
+      logo: "/images/partners/logo_AJ (3).png",
       category: "زراعي",
       description: "رائد في القطاع الزراعي",
     },
     {
       name: "وزارة البيئة والمياه والزراعة",
-      logo: "/images/partners/ministry-environment.png",
+      logo: "/images/partners/logo_AJ (4).png",
       category: "حكومي",
       description: "شراكة بيئية مستدامة",
     },
     {
       name: "الهلال الأحمر السعودي",
-      logo: "/images/partners/red-crescent.png",
+      logo: "/images/partners/logo_AJ (5).png",
       category: "إنساني",
       description: "شريك في العمل الإنساني",
     },
     {
       name: "غرفة تبوك",
-      logo: "/images/partners/tabuk-chamber.png",
+      logo: "/images/partners/logo_AJ (6).png",
       category: "تجاري",
       description: "شراكة تجارية استراتيجية",
     },
-    {
-      name: "جمعية الصحفيين",
-      logo: "/images/partners/journalists-association.png",
-      category: "إعلامي",
-      description: "شراكة إعلامية متميزة",
-    },
+   
     {
       name: "قهوتي همس",
-      logo: "/images/partners/qahwati-hams.png",
+      logo: "/images/partners/logo_AJ (8).png",
       category: "تجاري",
       description: "علامة تجارية مميزة",
     },
     {
       name: "شعار تجاري",
-      logo: "/images/partners/business-logo.png",
+      logo: "/images/partners/logo_AJ (9).png",
       category: "تجاري",
       description: "شراكة تجارية ناجحة",
     },
-    {
-      name: "بوينت كارد",
-      logo: "/images/partners/point-card.png",
-      category: "تقني",
-      description: "حلول دفع رقمية",
-    },
+   
     {
       name: "مركز الملك عبدالعزيز للحوار الوطني",
-      logo: "/images/partners/national-dialogue.png",
+      logo: "/images/partners/logo_AJ (11).png",
       category: "حكومي",
       description: "مركز الحوار الوطني",
     },
     {
       name: "النادي الرياضي",
-      logo: "/images/partners/sports-club.png",
+      logo: "/images/partners/logo_AJ (12).png",
       category: "رياضي",
       description: "شراكة رياضية متميزة",
     },
+    {
+      name: "مؤسسة تطوير الأعمال",
+      logo: "/images/partners/logo_AJ (13).png",
+      category: "استشارات",
+      description: "استشارات أعمال متكاملة",
+    },
+    {
+      name: "شركة التقنية الحديثة",
+      logo: "/images/partners/logo_AJ (14).png",
+      category: "تقنية",
+      description: "حلول تقنية مبتكرة",
+    },
+    {
+      name: "مؤسسة الإبداع الفني",
+      logo: "/images/partners/logo_AJ (15).png",
+      category: "إبداعي",
+      description: "إبداع في التصميم والفن",
+    },
+    
   ]
 
   const achievements = [
@@ -129,7 +143,7 @@ export function PartnersSection() {
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 leading-tight px-4">
             نفتخر بثقة
-            <span className="block bg-gradient-to-r from-[#36a1d7] via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent mt-2 sm:mt-4">
+            <span className="block p-1 bg-gradient-to-r from-[#36a1d7] via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent mt-2 sm:mt-4">
               عملائنا المميزين
             </span>
           </h2>
@@ -189,7 +203,7 @@ export function PartnersSection() {
           ))}
         </motion.div>
 
-        {/* Enhanced Infinite Partners Slider */}
+        {/* Enhanced Static Partners Grid */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -210,7 +224,118 @@ export function PartnersSection() {
             </p>
           </div>
 
-          <InfinitePartnersSlider items={partners} direction="right" speed="slow" />
+          {/* Responsive Partners Pyramid Grid */}
+          <div className="max-w-6xl mx-auto">
+            {/* First Row - 3 items */}
+            <div className="flex justify-center items-center gap-4 sm:gap-6 lg:gap-8 mb-4 sm:mb-6 lg:mb-8">
+              {partners.slice(0, 3).map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="group relative bg-white/95 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-[#36a1d7]/30 transition-all duration-500 cursor-pointer w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 overflow-hidden"
+                >
+                  <img
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                  />
+
+                  {/* Hover Effect Overlay */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                    style={{ background: "linear-gradient(135deg, #36a1d7, #66b19e)" }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Second Row - 4 items */}
+            <div className="flex justify-center items-center gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6 lg:mb-8">
+              {partners.slice(3, 7).map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: (index + 3) * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="group relative bg-white/95 backdrop-blur-sm rounded-2xl lg:rounded-3xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-[#36a1d7]/30 transition-all duration-500 cursor-pointer w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-44 lg:h-44 overflow-hidden"
+                >
+                  <img
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                  />
+
+                  {/* Hover Effect Overlay */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                    style={{ background: "linear-gradient(135deg, #36a1d7, #66b19e)" }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Third Row - 5 items */}
+            <div className="flex justify-center items-center gap-2 sm:gap-3 lg:gap-4 mb-4 sm:mb-6 lg:mb-8">
+              {partners.slice(7, 12).map((partner, index) => (
+                <motion.div
+                  key={partner.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: (index + 7) * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8, scale: 1.05 }}
+                  className="group relative bg-white/95 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-[#36a1d7]/30 transition-all duration-500 cursor-pointer w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 overflow-hidden"
+                >
+                  <img
+                    src={partner.logo || "/placeholder.svg"}
+                    alt={partner.name}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                  />
+
+                  {/* Hover Effect Overlay */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                    style={{ background: "linear-gradient(135deg, #36a1d7, #66b19e)" }}
+                  />
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Fourth Row - Remaining items (if any) */}
+            {partners.length > 12 && (
+              <div className="flex justify-center items-center gap-2 sm:gap-3 lg:gap-4 flex-wrap max-w-4xl mx-auto">
+                {partners.slice(12).map((partner, index) => (
+                  <motion.div
+                    key={partner.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: (index + 12) * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -8, scale: 1.05 }}
+                    className="group relative bg-white/95 backdrop-blur-sm rounded-xl lg:rounded-2xl border border-gray-200/60 shadow-lg hover:shadow-2xl hover:border-[#36a1d7]/30 transition-all duration-500 cursor-pointer w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 overflow-hidden"
+                  >
+                    <img
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={partner.name}
+                      className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                    />
+
+                    {/* Hover Effect Overlay */}
+                    <motion.div
+                      className="absolute inset-0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                      style={{ background: "linear-gradient(135deg, #36a1d7, #66b19e)" }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            )}
+          </div>
         </motion.div>
 
         {/* Enhanced CTA */}

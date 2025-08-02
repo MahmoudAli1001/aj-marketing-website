@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Play, Sparkles } from "lucide-react"
-import Link from "next/link"
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Play, Sparkles } from "lucide-react";
+import Link from "next/link";
 
 export default function HeroSection() {
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 150])
-  const opacity = useTransform(scrollY, [0, 300], [1, 0])
-
+ 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden clean-bg">
-      <motion.div style={{ y, opacity }} className="section-container relative z-20">
+      <motion.div
+      
+        className="section-container relative z-20"
+      >
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -26,6 +26,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
             className="flex justify-center"
           >
+            
+            
             <div className="inline-flex items-center px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 md:py-4 bg-white/95 backdrop-blur-md border border-gray-200/60 rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 group">
               <motion.div
                 animate={{
@@ -52,6 +54,9 @@ export default function HeroSection() {
                 transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
               />
             </div>
+
+           
+            
           </motion.div>
 
           {/* Main Headline - Enhanced with better line spacing */}
@@ -61,46 +66,66 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.3 }}
             className="space-y-6 sm:space-y-8 lg:space-y-12"
           >
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight px-4">
-              <motion.span
-                className="block bg-gradient-to-r from-[#36a1d7] via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent mb-3 sm:mb-4 md:mb-6"
-                initial={{ backgroundPosition: "0% 50%" }}
-                animate={{ backgroundPosition: "200% 50%" }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
-                نحن شباب طموح
-              </motion.span>
-              <span className="text-gray-900 block mb-3 sm:mb-4 md:mb-6">متخصصون في</span>
-              <motion.span
-                className="block bg-gradient-to-r from-[#8bbb4c] via-[#66b19e] to-[#36a1d7] bg-clip-text text-transparent"
-                initial={{ backgroundPosition: "200% 50%" }}
-                animate={{ backgroundPosition: "0% 50%" }}
-                transition={{
-                  duration: 4,
-                  repeat: Number.POSITIVE_INFINITY,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-                style={{ backgroundSize: "200% 200%" }}
-              >
-                التسويق الرقمي
-              </motion.span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto font-medium px-4"
-            >
-              مؤسسة رائدة في مجال التسويق الرقمي والتصوير والمونتاج، نقدم حلولاً مبتكرة وإبداعية متفردة
-            </motion.p>
+            <div className="flex flex-col-reverse items-center justify-center gap-8 md:gap-12 lg:gap-16 md:flex-row w-full">
+              {/* Headline & Text */}
+              <div className="flex-1 flex flex-col items-center md:items-end text-center md:text-end">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold tracking-tight px-2 sm:px-4 leading-tight">
+                  <motion.span
+                    className="block bg-gradient-to-r from-[#36a1d7] pb-5 via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent mb-2 sm:mb-3 md:mb-4"
+                    initial={{ backgroundPosition: "0% 50%" }}
+                    animate={{ backgroundPosition: "200% 50%" }}
+                    transition={{
+                      duration: 4,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
+                    نحن شباب طموح
+                  </motion.span>
+                  <span className="text-gray-900 block mb-2 sm:mb-3 md:mb-4">
+                    متخصصون في
+                  </span>
+                  <motion.span
+                    className="block bg-gradient-to-r pb-3 from-[#8bbb4c] via-[#66b19e] to-[#36a1d7] bg-clip-text text-transparent"
+                    initial={{ backgroundPosition: "200% 50%" }}
+                    animate={{ backgroundPosition: "0% 50%" }}
+                    transition={{
+                      duration: 4,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
+                    style={{ backgroundSize: "200% 200%" }}
+                  >
+                    الخدمات الرقمية
+                  </motion.span>
+                </h1>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-700 max-w-xl md:max-w-lg lg:max-w-2xl mx-auto md:mx-0 font-medium px-2 sm:px-4 mt-4"
+                >
+                  مؤسسة رائدة في مجال التسويق الرقمي والتصوير والمونتاج، نقدم حلولاً مبتكرة وإبداعية متفردة
+                </motion.p>
+              </div>
+              {/* Hero Image */}
+                <motion.div
+                  className="relative aspect-square w-96 rounded-2xl overflow-hidden flex-shrink-0"
+                  initial={{ x: -100, opacity: 0, scale: 0.8 }}
+                  animate={{ x: 0, opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                >
+                  <img
+                    src="/hero_image.gif"
+                    alt="Hero Image"
+                    className="w-full h-full object-cover"
+                    style={{ objectFit: "cover" }}
+                  />
+                </motion.div>
+            </div>
           </motion.div>
 
           {/* Enhanced CTA Buttons */}
@@ -164,26 +189,7 @@ export default function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 4 }}
-        className="absolute bottom-6 sm:bottom-8 lg:bottom-12 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-          className="w-5 h-8 sm:w-6 sm:h-10 md:w-8 md:h-14 border-2 border-[#36a1d7]/40 rounded-full flex justify-center bg-white/80 backdrop-blur-sm shadow-lg"
-        >
-          <motion.div
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 2.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            className="w-1 h-3 sm:w-1.5 sm:h-4 md:w-2 md:h-6 bg-gradient-to-b from-[#36a1d7] to-[#66b19e] rounded-full mt-1.5 sm:mt-2 md:mt-3"
-          />
-        </motion.div>
-        <p className="text-xs sm:text-sm text-gray-600 mt-2 sm:mt-3 md:mt-4 font-medium">اكتشف المزيد</p>
-      </motion.div>
+      
     </section>
-  )
+  );
 }

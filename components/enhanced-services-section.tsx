@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
-import { Code, Palette, Megaphone, Camera, BarChart3, Users, ArrowRight, Sparkles } from "lucide-react"
+import { Code, Palette, Megaphone, Camera, BarChart3, Users, ArrowRight, Sparkles, Mic } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
@@ -14,8 +14,15 @@ export function EnhancedServicesSection() {
       icon: Code,
       title: "تصميم وبرمجة المواقع",
       description: "تصميم وتطوير مواقع ومتاجر إلكترونية احترافية وسريعة مع أحدث التقنيات",
-      color: "#36a1d7",
+      color: "#8bbb4c",
       features: ["تصميم متجاوب", "سرعة عالية", "أمان متقدم", "SEO محسن"],
+    },
+     {
+      icon: Code,
+      title: "تطوير تطبيقات الهواتف",
+      description: "تطوير تطبيقات مخصصة للهواتف الذكية بأنظمة iOS وAndroid",
+      color: "#36a1d7",
+      features: ["تطبيقات مخصصة", "تصميم UX/UI", "تكامل مع الخدمات", "اختبار شامل"],
     },
     {
       icon: Palette,
@@ -27,9 +34,13 @@ export function EnhancedServicesSection() {
     {
       icon: Megaphone,
       title: "التسويق الإلكتروني",
-      description: "حملات تسويقية مدروسة ومخططة لزيادة المبيعات والوصول للجمهور المستهدف",
+      description: "حملات تسويقية مدروسة ومخططة لزيادة المبيعات والوصول للجمهور المستهدف.",
       color: "#8bbb4c",
-      features: ["إعلانات مدفوعة", "تسويق محتوى", "SEO", "تحليل البيانات"],
+      features: [
+        "إعلانات مدفوعة",
+        "SEO",
+        "لنسوق على سناب شات، تيك توك، انستقرام، جوجل",
+      ],
     },
     {
       icon: Camera,
@@ -52,6 +63,19 @@ export function EnhancedServicesSection() {
       color: "#8bbb4c",
       features: ["استراتيجية محتوى", "جدولة منشورات", "تفاعل مع الجمهور", "تقارير أداء"],
     },
+    {
+      icon: Mic,
+      title: "التعليق الصوتي",
+      description: "خدمات التعليق الصوتي الاحترافي لمختلف المشاريع",
+      color: "#36a1d7",
+      features: [
+        "تعليق صوتي احترافي (رجالي - نسائي - طفولي)",
+        "تسجيل صوتي",
+        "تحرير صوتي",
+        "توفير مؤثرات صوتية"
+      ],
+    },
+   
   ]
 
   return (
@@ -72,7 +96,7 @@ export function EnhancedServicesSection() {
 
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-gray-900 px-4">
             <span className="block mb-3 sm:mb-4 md:mb-6">نقدم خدمات</span>
-            <span className="block bg-gradient-to-r from-[#36a1d7] via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r p-1 from-[#36a1d7] via-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent">
               رقمية شاملة
             </span>
           </h2>
@@ -88,86 +112,95 @@ export function EnhancedServicesSection() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, staggerChildren: 0.2 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
+          className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16`}
         >
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 50, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full service-card bg-white/95 backdrop-blur-sm border border-gray-200/60 shadow-xl hover:shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl">
-                <CardHeader className="pb-3 sm:pb-4 lg:pb-6 service-card-content">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                    className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl sm:rounded-2xl lg:rounded-3xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 transition-all duration-500 relative overflow-hidden"
-                    style={{ backgroundColor: `${service.color}15` }}
-                  >
-                    <service.icon
-                      className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 relative z-10"
-                      style={{ color: service.color }}
-                    />
-                  </motion.div>
+              <Card
+          className="h-full service-card bg-white/95 backdrop-blur-sm border border-gray-200/60 shadow-xl hover:shadow-2xl rounded-xl sm:rounded-2xl lg:rounded-3xl transition-all ease-in-out duration-800"
+          style={{ transition: "background 0.8s" }}
+          onMouseEnter={e => {
+            e.currentTarget.style.background = `${service.color}12`;
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.background = "rgba(255,255,255,0.95)";
+          }}
+              >
+          <CardHeader className="pb-3 sm:pb-4 lg:pb-6 service-card-content">
+            <motion.div
+              // Removed scale up and rotate on hover
+              transition={{ duration: 0.8 }}
+              className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 rounded-xl sm:rounded-2xl lg:rounded-3xl flex items-center justify-center mb-3 sm:mb-4 lg:mb-6 transition-all duration-500 relative overflow-hidden"
+              style={{ backgroundColor: `${service.color}15` }}
+            >
+              <service.icon
+                className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 relative z-10"
+                style={{ color: service.color }}
+              />
+            </motion.div>
 
-                  <CardTitle className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 transition-colors duration-300">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
+            <CardTitle className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 transition-colors duration-300">
+              {service.title}
+            </CardTitle>
+          </CardHeader>
 
-                <CardContent className="space-y-3 sm:space-y-4 lg:space-y-6 service-card-content">
-                  <CardDescription className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed transition-colors duration-300">
-                    {service.description}
-                  </CardDescription>
+          <CardContent className="space-y-3 sm:space-y-4 lg:space-y-6 service-card-content">
+            <CardDescription className="text-gray-600 text-sm sm:text-base lg:text-lg leading-relaxed transition-colors duration-300">
+              {service.description}
+            </CardDescription>
 
-                  <div className="space-y-2 sm:space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.1 * idx }}
-                        viewport={{ once: true }}
-                        className="flex items-center space-x-2 sm:space-x-3 group/feature"
-                      >
-                        <motion.div
-                          className="w-2 h-2 sm:w-2.5 sm:h-2.5 lg:w-3 lg:h-3 rounded-full flex-shrink-0 group-hover/feature:scale-125 transition-transform duration-300"
-                          style={{ backgroundColor: service.color }}
-                          whileHover={{ scale: 1.3 }}
-                        />
-                        <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium transition-colors duration-300">
-                          {feature}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  <motion.div className="pt-2 sm:pt-3 lg:pt-4" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
-                    <Button
-                      variant="ghost"
-                      className="w-full justify-between text-gray-700 hover:text-white hover:bg-gradient-to-r transition-all duration-300 rounded-lg sm:rounded-xl lg:rounded-2xl py-3 sm:py-4 lg:py-6 group/btn relative overflow-hidden text-sm sm:text-base lg:text-lg"
-                      style={
-                        {
-                          "--hover-from": service.color,
-                          "--hover-to": service.color + "80",
-                        } as React.CSSProperties
-                      }
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = `linear-gradient(135deg, ${service.color}, ${service.color}cc)`
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = "transparent"
-                      }}
-                    >
-                      <span className="font-semibold">تعرف على المزيد</span>
-                      <motion.div whileHover={{ x: -5 }} transition={{ duration: 0.2 }}>
-                        <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 scale-x-[-1]" />
-                      </motion.div>
-                    </Button>
-                  </motion.div>
-                </CardContent>
+            <div className="space-y-2 sm:space-y-3">
+              {service.features.map((feature, idx) => (
+                <motion.div
+            key={idx}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 * idx }}
+            viewport={{ once: true }}
+            className="flex items-center  space-x-2 sm:space-x-3 group/feature"
+                >
+            <motion.div
+              className="w-2 h-2  sm:w-2.5 sm:h-2.5  lg:w-3 lg:h-3 rounded-full flex-shrink-0 group-hover/feature:scale-125 transition-transform duration-300 m-2"
+              style={{ backgroundColor: service.color }}
+              // Removed scale on hover
+            />
+            <span className="text-xs sm:text-sm lg:text-base text-gray-700 font-medium transition-colors duration-300">
+              {feature}
+            </span>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div className="pt-2 sm:pt-3 lg:pt-4" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+              <Button
+                variant="ghost"
+                className="w-full justify-between duration-700 text-white transition-all rounded-lg sm:rounded-xl lg:rounded-2xl py-3 sm:py-4 lg:py-6 group/btn relative overflow-hidden text-sm sm:text-base lg:text-lg font-semibold"
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  background: `linear-gradient(90deg, ${service.color}, ${service.color}80, ${service.color}cc)`,
+                  backgroundSize: "200% 200%",
+                  animation: "gradientMove 2s linear infinite"
+                }}
+              >
+                <style>{`
+                  @keyframes gradientMove {
+                    0% { background-position: 0% 50%; }
+                    100% { background-position: 100% 50%; }
+                  }
+                `}</style>
+                <span className="font-semibold drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]">تعرف على المزيد</span>
+                <span>
+                  <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 lg:h-5 lg:w-5 scale-x-[-1] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.15)]" />
+                </span>
+              </Button>
+            </motion.div>
+          </CardContent>
               </Card>
             </motion.div>
           ))}
@@ -189,11 +222,11 @@ export function EnhancedServicesSection() {
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto">
                 نحن نقدم حلولاً مخصصة تماماً لاحتياجاتك الفريدة
               </p>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div >
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-[#36a1d7] to-[#66b19e] hover:from-[#66b19e] hover:to-[#8bbb4c] text-white text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300"
+                  className="bg-gradient-to-r from-[#36a1d7] duration-700 to-[#66b19e] hover:from-[#66b19e] hover:to-[#8bbb4c] text-white text-sm sm:text-base md:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-3 sm:py-4 lg:py-6 rounded-full shadow-xl hover:shadow-2xl transition-all "
                 >
                   <Link href="/contact">
                     تواصل معنا الآن

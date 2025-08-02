@@ -44,12 +44,12 @@ export function Navbar() {
           <Link href="/" className="flex items-center">
             <div className="relative">
               <Image
-                src="/images/logo-aj.png"
-                alt="AJ Marketing Solutions"
-                width={200}
-                height={65}
-                className="h-12 sm:h-16 w-auto"
-                priority
+              src="/images/logo-aj.png"
+              alt="AJ Marketing Solutions"
+              width={320}
+              height={210}
+              className="h-20 sm:h-24 w-auto"
+              priority
               />
             </div>
           </Link>

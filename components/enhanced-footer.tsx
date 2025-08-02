@@ -250,8 +250,8 @@ export function EnhancedFooter() {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#36a1d7]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-5 w-5 sm:h-6 sm:w-6 text-[#36a1d7]" />
+                  <div className="w-10 h-10 sm:w-12 ml-2 sm:h-12 bg-[#36a1d7]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-5 w-5  sm:h-6 sm:w-6 text-[#36a1d7]" />
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1 text-sm sm:text-base">البريد الإلكتروني</p>
@@ -266,9 +266,9 @@ export function EnhancedFooter() {
 
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300"
+                  className="flex items-start sm:space-x-4 p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#66b19e]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 sm:w-12 ml-2 sm:h-12 bg-[#66b19e]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
                     <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-[#66b19e]" />
                   </div>
                   <div>
@@ -286,8 +286,8 @@ export function EnhancedFooter() {
                   whileHover={{ scale: 1.02 }}
                   className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 bg-white/5 rounded-lg sm:rounded-xl hover:bg-white/10 transition-all duration-300"
                 >
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#8bbb4c]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-[#8bbb4c]" />
+                  <div className="w-10 h-10 sm:w-12 ml-2 sm:h-12 bg-[#8bbb4c]/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-5 w-5  sm:h-6 sm:w-6 text-[#8bbb4c]" />
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1 text-sm sm:text-base">العنوان</p>
@@ -299,7 +299,7 @@ export function EnhancedFooter() {
               {/* Social Media */}
               <div className="space-y-3 sm:space-y-4">
                 <h4 className="font-semibold text-white text-base sm:text-lg">تابعنا على</h4>
-                <div className="flex space-x-3 sm:space-x-4">
+                <div className="flex justify-start items-center gap-3 sm:gap-4 flex-wrap">
                   {socialLinks.map((social, index) => (
                     <motion.div
                       key={social.name}
@@ -344,6 +344,7 @@ export function EnhancedFooter() {
             <p className="text-gray-400 text-center md:text-left text-sm sm:text-base">
               © {new Date().getFullYear()} AJ Marketing Solutions. جميع الحقوق محفوظة
             </p>
+            
             <div className="flex items-center space-x-4 sm:space-x-6 text-xs sm:text-sm">
               <Link
                 href="/privacy"

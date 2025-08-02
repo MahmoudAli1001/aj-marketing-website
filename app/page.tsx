@@ -9,6 +9,7 @@ import { Navbar } from "@/components/navbar"
 import { EnhancedFooter } from "@/components/enhanced-footer"
 import { EnhancedCTASection } from "@/components/enhanced-cta-section"
 
+
 export default function HomePage() {
   return (
     <div className="min-h-screen">
