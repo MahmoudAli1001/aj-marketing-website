@@ -1,7 +1,6 @@
 "use client"
 
-import { Navbar } from "@/components/navbar"
-import { EnhancedFooter } from "@/components/enhanced-footer"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -39,8 +38,8 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <main className="pt-16">
+      {/* <Navbar /> */}
+      <main className="">
         {/* Enhanced Hero Section */}
         <section className="relative py-20 sm:py-24 lg:py-32 xl:py-40 bg-gradient-to-br from-[#36a1d7]/10 via-[#66b19e]/5 to-[#8bbb4c]/10 overflow-hidden">
           {/* Background Pattern */}
@@ -312,7 +311,7 @@ export default function ContactPage() {
           </div>
         </section>
       </main>
-      <EnhancedFooter />
+   
     </div>
   )
 }

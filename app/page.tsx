@@ -13,7 +13,7 @@ import { EnhancedCTASection } from "@/components/enhanced-cta-section"
 export default function HomePage() {
   return (
     <div className="min-h-screen">
-      <Navbar />
+   
       <main>
         <HeroSection />
         <EnhancedServicesSection />
@@ -22,7 +22,7 @@ export default function HomePage() {
         <EnhancedCTASection />
         <EnhancedNewsletterSection />
       </main>
-      <EnhancedFooter />
+     
     </div>
   )
 }

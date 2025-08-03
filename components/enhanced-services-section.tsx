@@ -1,14 +1,15 @@
 "use client"
 
 import type React from "react"
-
-import { motion } from "framer-motion"
-import { Code, Palette, Megaphone, Camera, BarChart3, Users, ArrowRight, Sparkles, Mic } from "lucide-react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Code, Palette, Megaphone, Camera, BarChart3, Users, ArrowRight, Sparkles, Mic, X, CheckCircle, Phone, MessageSquare } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 export function EnhancedServicesSection() {
+  const [selectedService, setSelectedService] = useState<any>(null)
   const services = [
     {
       icon: Code,
@@ -16,6 +17,9 @@ export function EnhancedServicesSection() {
       description: "تصميم وتطوير مواقع ومتاجر إلكترونية احترافية وسريعة مع أحدث التقنيات",
       color: "#8bbb4c",
       features: ["تصميم متجاوب", "سرعة عالية", "أمان متقدم", "SEO محسن"],
+      fullDescription: "نقدم خدمات تصميم وبرمجة المواقع الإلكترونية بأحدث التقنيات والمعايير العالمية. فريقنا المتخصص يعمل على تطوير مواقع متجاوبة وسريعة مع تحسين محركات البحث.",
+      benefits: ["زيادة المبيعات بنسبة 300%", "تحسين تجربة المستخدم", "أمان عالي المستوى", "دعم فني مدى الحياة"],
+      process: ["تحليل المتطلبات", "التصميم والتطوير", "الاختبار والمراجعة", "الإطلاق والمتابعة"]
     },
      {
       icon: Code,
@@ -23,6 +27,9 @@ export function EnhancedServicesSection() {
       description: "تطوير تطبيقات مخصصة للهواتف الذكية بأنظمة iOS وAndroid",
       color: "#36a1d7",
       features: ["تطبيقات مخصصة", "تصميم UX/UI", "تكامل مع الخدمات", "اختبار شامل"],
+      fullDescription: "نطور تطبيقات الهواتف الذكية المخصصة لأنظمة iOS وAndroid بتصميم مميز وأداء عالي، مع التكامل الكامل مع خدماتك الحالية.",
+      benefits: ["وصول أكبر للعملاء", "تفاعل أكثر مع العلامة التجارية", "إشعارات فورية", "عمل بدون إنترنت"],
+      process: ["دراسة السوق", "التصميم والبرمجة", "الاختبار المكثف", "النشر على المتاجر"]
     },
     {
       icon: Palette,
@@ -30,6 +37,9 @@ export function EnhancedServicesSection() {
       description: "تصاميم إبداعية وانفوجرافيك وموشن جرافيك متميز يجذب الجمهور",
       color: "#66b19e",
       features: ["هوية بصرية", "انفوجرافيك", "موشن جرافيك", "تصاميم طباعة"],
+      fullDescription: "فريق التصميم لدينا يبدع في إنتاج التصاميم البصرية المميزة والإنفوجرافيك التفاعلي الذي يوصل رسالتك بوضوح وجاذبية.",
+      benefits: ["جذب انتباه أكبر", "توصيل الرسالة بوضوح", "زيادة التفاعل", "تميز عن المنافسين"],
+      process: ["فهم الرسالة", "العصف الذهني", "التصميم والتطوير", "المراجعة والتسليم"]
     },
     {
       icon: Megaphone,
@@ -41,6 +51,9 @@ export function EnhancedServicesSection() {
         "SEO",
         "لنسوق على سناب شات، تيك توك، انستقرام، جوجل",
       ],
+      fullDescription: "نصمم استراتيجيات تسويقية شاملة تشمل الإعلانات المدفوعة على جميع المنصات، تحسين محركات البحث، وإدارة حسابات التواصل الاجتماعي.",
+      benefits: ["زيادة المبيعات", "تحسين الوعي بالعلامة التجارية", "استهداف دقيق", "عائد استثمار مضمون"],
+      process: ["تحليل السوق", "وضع الاستراتيجية", "تنفيذ الحملات", "التحليل والتحسين"]
     },
     {
       icon: Camera,
@@ -48,6 +61,9 @@ export function EnhancedServicesSection() {
       description: "تصوير احترافي ومونتاج متقن للفيديوهات والصور بأعلى جودة",
       color: "#36a1d7",
       features: ["تصوير منتجات", "فيديو ترويجي", "تصوير فعاليات", "مونتاج احترافي"],
+      fullDescription: "خدمات التصوير الاحترافي والمونتاج المتقن لجميع أنواع المحتوى المرئي، من تصوير المنتجات إلى الفيديوهات الترويجية والفعاليات.",
+      benefits: ["محتوى عالي الجودة", "جذب انتباه أكبر", "احترافية في العرض", "زيادة التفاعل"],
+      process: ["التخطيط المسبق", "التصوير", "المونتاج والمعالجة", "التسليم النهائي"]
     },
     {
       icon: BarChart3,
@@ -55,6 +71,9 @@ export function EnhancedServicesSection() {
       description: "تحليل البيانات وقياس الأداء لتحسين النتائج واتخاذ قرارات مدروسة",
       color: "#66b19e",
       features: ["تقارير مفصلة", "تحليل الجمهور", "قياس ROI", "توصيات تحسين"],
+      fullDescription: "نوفر تحليلات عميقة لبياناتك التسويقية والرقمية، مع تقارير مفصلة وتوصيات عملية لتحسين الأداء وزيادة العائد على الاستثمار.",
+      benefits: ["قرارات مبنية على البيانات", "تحسين الأداء المستمر", "فهم أعمق للجمهور", "زيادة الربحية"],
+      process: ["جمع البيانات", "التحليل والتفسير", "إعداد التقارير", "تقديم التوصيات"]
     },
     {
       icon: Users,
@@ -62,6 +81,9 @@ export function EnhancedServicesSection() {
       description: "إدارة شاملة ومتخصصة لمحتوى وسائل التواصل الاجتماعي",
       color: "#8bbb4c",
       features: ["استراتيجية محتوى", "جدولة منشورات", "تفاعل مع الجمهور", "تقارير أداء"],
+      fullDescription: "فريق إدارة المحتوى لدينا يخطط وينفذ استراتيجيات محتوى فعالة عبر جميع منصات التواصل الاجتماعي مع متابعة مستمرة للتفاعل والنتائج.",
+      benefits: ["حضور مستمر", "تفاعل أعلى", "بناء مجتمع", "زيادة الولاء للعلامة التجارية"],
+      process: ["وضع الاستراتيجية", "إنتاج المحتوى", "النشر والتفاعل", "التحليل والتطوير"]
     },
     {
       icon: Mic,
@@ -74,6 +96,9 @@ export function EnhancedServicesSection() {
         "تحرير صوتي",
         "توفير مؤثرات صوتية"
       ],
+      fullDescription: "نقدم خدمات التعليق الصوتي الاحترافي بأصوات متنوعة (رجالي، نسائي، طفولي) مع خدمات التسجيل والتحرير الصوتي والمؤثرات.",
+      benefits: ["أصوات احترافية متنوعة", "جودة تسجيل عالية", "سرعة في التنفيذ", "أسعار تنافسية"],
+      process: ["اختيار الصوت المناسب", "التسجيل", "التحرير والمعالجة", "التسليم النهائي"]
     },
    
   ]
@@ -179,7 +204,8 @@ export function EnhancedServicesSection() {
             <motion.div className="pt-2 sm:pt-3 lg:pt-4" whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
               <Button
                 variant="ghost"
-                className="w-full justify-between duration-700 text-white transition-all rounded-lg sm:rounded-xl lg:rounded-2xl py-3 sm:py-4 lg:py-6 group/btn relative overflow-hidden text-sm sm:text-base lg:text-lg font-semibold"
+                onClick={() => setSelectedService(service)}
+                className="w-full justify-between duration-700 text-white transition-all rounded-lg sm:rounded-xl lg:rounded-2xl py-3 sm:py-4 lg:py-6 group/btn relative overflow-hidden text-sm sm:text-base lg:text-lg font-semibold cursor-pointer"
                 style={{
                   position: "relative",
                   zIndex: 1,
@@ -238,6 +264,159 @@ export function EnhancedServicesSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Service Details Modal */}
+      <AnimatePresence>
+        {selectedService && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedService(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0, y: 50 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.7, opacity: 0, y: 50 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="bg-white rounded-3xl max-w-4xl w-full max-h-[95vh] overflow-hidden shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div 
+                className="relative p-8 pb-6 text-white"
+                style={{ background: `linear-gradient(135deg, ${selectedService?.color}, ${selectedService?.color}cc)` }}
+              >
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setSelectedService(null)}
+                  className="absolute top-6 left-6 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors z-10 backdrop-blur-sm"
+                >
+                  <X className="w-5 h-5 text-white" />
+                </motion.button>
+
+                <div className="flex items-center gap-6 mb-4">
+                  <motion.div 
+                    animate={{ rotate: [0, 360] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                    className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg"
+                  >
+                    {selectedService?.icon && <selectedService.icon className="w-10 h-10 text-white" />}
+                  </motion.div>
+                  <div>
+                    <h3 className="text-3xl font-bold mb-2">
+                      {selectedService?.title}
+                    </h3>
+                    <div className="w-16 h-1 bg-white/40 rounded-full" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Content */}
+              <div className="px-8 pb-8 max-h-[calc(95vh-180px)] overflow-y-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">نظرة عامة</h4>
+                    <p className="text-gray-600 leading-relaxed mb-6">
+                      {selectedService?.fullDescription}
+                    </p>
+
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">الفوائد الرئيسية</h4>
+                    <div className="space-y-3">
+                      {selectedService?.benefits?.map((benefit: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: -20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <div 
+                            className="w-2 h-2 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: selectedService?.color }}
+                          />
+                          <span className="text-gray-700">{benefit}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">ما نقدمه لك</h4>
+                    <div className="grid grid-cols-1 gap-3 mb-6">
+                      {selectedService?.features?.map((feature: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center gap-3 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                        >
+                          <CheckCircle 
+                            className="w-5 h-5 flex-shrink-0"
+                            style={{ color: selectedService?.color }}
+                          />
+                          <span className="text-gray-700 font-medium">
+                            {feature}
+                          </span>
+                        </motion.div>
+                      ))}
+                    </div>
+
+                    <h4 className="text-xl font-bold text-gray-900 mb-4">خطوات العمل</h4>
+                    <div className="space-y-3">
+                      {selectedService?.process?.map((step: string, index: number) => (
+                        <motion.div
+                          key={index}
+                          initial={{ opacity: 0, x: 20 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="flex items-center gap-3"
+                        >
+                          <div 
+                            className="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold shadow-lg"
+                            style={{ backgroundColor: selectedService?.color }}
+                          >
+                            {index + 1}
+                          </div>
+                          <span className="text-gray-700">{step}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-6 border-t border-gray-200">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-1 py-4 px-6 rounded-xl text-white font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    style={{ backgroundColor: selectedService?.color }}
+                  >
+                    <Phone className="w-5 h-5" />
+                    اطلب عرض سعر مجاني
+                  </motion.button>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-1 py-4 px-6 border-2 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+                    style={{ 
+                      borderColor: selectedService?.color,
+                      color: selectedService?.color
+                    }}
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                    تواصل معنا الآن
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

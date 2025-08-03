@@ -2,6 +2,8 @@ import type React from "react"
 import { Tajawal } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { Navbar } from "@/components/navbar"
+import { EnhancedFooter } from "@/components/enhanced-footer"
 
 const tajawal = Tajawal({
   subsets: ["arabic"],
@@ -24,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${tajawal.variable} font-tajawal`}>
+        <Navbar />
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           {children}
         </ThemeProvider>
+      <EnhancedFooter />
       </body>
     </html>
   )
