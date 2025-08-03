@@ -3,6 +3,55 @@
 import { Eye, Target, Users, Award, Sparkles, Heart, Zap, Trophy, Star, Lightbulb, Shield, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
 
+// SEO Metadata for About Page
+export const metadata = {
+  title: "من نحن - AJ Marketing | شركة رائدة في التسويق الرقمي والحلول التقنية",
+  description: "تعرف على AJ Marketing، شركة متخصصة في التسويق الرقمي والحلول التقنية المبتكرة. نقدم خدمات تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. رؤيتنا وقيمنا وفريق العمل المتخصص.",
+  keywords: [
+    "من نحن AJ Marketing",
+    "شركة تسويق رقمي",
+    "حلول تقنية مبتكرة",
+    "فريق متخصص",
+    "رؤية ورسالة الشركة",
+    "قيم الشركة",
+    "خبرة في التسويق",
+    "شركة سعودية",
+    "تطوير مواقع",
+    "تصميم تطبيقات",
+    "إبداع وتميز",
+    "خدمات رقمية شاملة",
+    "فريق AJ Marketing",
+    "تاريخ الشركة"
+  ].join(", "),
+  author: "AJ Marketing",
+  robots: "index, follow",
+  openGraph: {
+    title: "من نحن - AJ Marketing | قصة النجاح والتميز",
+    description: "اكتشف قصة AJ Marketing وفريق العمل المتخصص في التسويق الرقمي والحلول التقنية المبتكرة",
+    type: "website",
+    url: "https://ajmarketing.sa/about",
+    siteName: "AJ Marketing",
+    images: [
+      {
+        url: "/images/about-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "فريق AJ Marketing"
+      }
+    ],
+    locale: "ar_SA"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "من نحن - AJ Marketing",
+    description: "شركة رائدة في التسويق الرقمي والحلول التقنية المبتكرة",
+    images: ["/images/about-hero.jpg"]
+  },
+  alternates: {
+    canonical: "https://ajmarketing.sa/about"
+  }
+}
+
 export default function AboutPage() {
   const values = [
     {

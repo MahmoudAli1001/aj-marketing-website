@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Head from "next/head"
 import { 
   Code, 
   Palette, 
@@ -23,6 +24,68 @@ import {
   Award,
   Globe
 } from "lucide-react"
+
+// SEO Metadata for Services Page
+export const metadata = {
+  title: "خدماتنا الرقمية - AJ Marketing | تصميم المواقع والتطبيقات والتسويق الإلكتروني",
+  description: "نقدم خدمات رقمية شاملة تشمل تصميم وبرمجة المواقع، تطوير تطبيقات الهواتف، التسويق الإلكتروني، التصاميم والإنفوجرافيك، التصوير والمونتاج. احصل على حلول رقمية احترافية مع فريق AJ Marketing المتخصص.",
+  keywords: [
+    "تصميم مواقع",
+    "برمجة تطبيقات", 
+    "تسويق إلكتروني",
+    "تصميم جرافيك",
+    "انفوجرافيك",
+    "تصوير فيديو",
+    "مونتاج",
+    "تحليل بيانات",
+    "إدارة محتوى",
+    "تعليق صوتي",
+    "خدمات رقمية السعودية",
+    "شركة تسويق رقمي",
+    "تطوير مواقع الرياض",
+    "SEO",
+    "موشن جرافيك"
+  ].join(", "),
+  author: "AJ Marketing",
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1",
+  openGraph: {
+    title: "خدماتنا الرقمية - AJ Marketing | حلول رقمية شاملة ومتطورة",
+    description: "خدمات رقمية احترافية تشمل تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. نحول أحلامك الرقمية إلى واقع ملموس.",
+    type: "website",
+    url: "https://ajmarketing.sa/services",
+    siteName: "AJ Marketing",
+    images: [
+      {
+        url: "/images/services-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "خدمات AJ Marketing الرقمية"
+      }
+    ],
+    locale: "ar_SA"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "خدماتنا الرقمية - AJ Marketing",
+    description: "حلول رقمية شاملة ومتطورة تواكب أحدث التطورات التقنية",
+    images: ["/images/services-hero.jpg"],
+    site: "@ajmarketing_sa"
+  },
+  alternates: {
+    canonical: "https://ajmarketing.sa/services",
+    languages: {
+      "ar-SA": "https://ajmarketing.sa/ar/services",
+      "en-US": "https://ajmarketing.sa/en/services"
+    }
+  },
+  other: {
+    "theme-color": "#36a1d7",
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "default",
+    "format-detection": "telephone=no"
+  }
+}
 
 export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<any>(null)
@@ -125,15 +188,73 @@ export default function ServicesPage() {
     { icon: Globe, value: "24/7", label: "دعم فني" }
   ]
 
+  // Structured Data for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "AJ Marketing",
+    "description": "شركة متخصصة في الخدمات الرقمية والتسويق الإلكتروني",
+    "url": "https://ajmarketing.sa",
+    "logo": "https://ajmarketing.sa/logo.png",
+    "sameAs": [
+      "https://twitter.com/ajmarketing_sa",
+      "https://linkedin.com/company/ajmarketing",
+      "https://instagram.com/ajmarketing_sa"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+966-XX-XXX-XXXX",
+      "contactType": "customer service",
+      "areaServed": "SA",
+      "availableLanguage": ["Arabic", "English"]
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "SA",
+      "addressRegion": "Riyadh"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "خدمات AJ Marketing الرقمية",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description,
+          "category": service.category,
+          "provider": {
+            "@type": "Organization",
+            "name": "AJ Marketing"
+          }
+        }
+      }))
+    }
+  }
+
   return (
-    <div className="min-h-screen">
-     
+    <>
+      {/* SEO Head with Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData)
+        }}
+      />
       
-      <main className="">
-        {/* Hero Section */}
-        <section className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-[#36a1d7]/10 via-[#66b19e]/5 to-[#8bbb4c]/10 overflow-hidden">
-          <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-transparent to-white/20" />
+      <div className="min-h-screen">
+        <main className="">
+          {/* Hero Section */}
+          <section 
+            className="relative py-20 sm:py-24 lg:py-32 bg-gradient-to-br from-[#36a1d7]/10 via-[#66b19e]/5 to-[#8bbb4c]/10 overflow-hidden"
+            itemScope 
+            itemType="https://schema.org/WebPageElement"
+          >
+            <meta itemProp="name" content="قسم خدماتنا الرقمية" />
+            <meta itemProp="description" content="عرض شامل لخدمات AJ Marketing الرقمية المتخصصة" />
+            
+            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-transparent to-white/20" />
           
           {/* Floating Elements */}
           <motion.div 
@@ -196,7 +317,15 @@ export default function ServicesPage() {
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 lg:py-28">
+        <section 
+          className="py-20 lg:py-28"
+          itemScope 
+          itemType="https://schema.org/ItemList"
+          aria-labelledby="services-heading"
+        >
+          <meta itemProp="name" content="خدمات AJ Marketing الرقمية" />
+          <meta itemProp="description" content="مجموعة شاملة من الخدمات الرقمية المتخصصة" />
+          
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
@@ -205,7 +334,7 @@ export default function ServicesPage() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              <h2 id="services-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 مجموعة خدماتنا
                 <span className="block bg-gradient-to-r from-[#66b19e] to-[#8bbb4c] bg-clip-text text-transparent mt-2">
                   المتكاملة
@@ -236,8 +365,22 @@ export default function ServicesPage() {
                   viewport={{ once: true }}
                   className="group relative cursor-pointer"
                   onClick={() => setSelectedService(service)}
+                  itemScope
+                  itemType="https://schema.org/Service"
+                  itemProp="itemListElement"
                 >
-                  <div className="relative bg-white/95 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 h-full overflow-hidden">
+                  <meta itemProp="name" content={service.title} />
+                  <meta itemProp="description" content={service.description} />
+                  <meta itemProp="category" content={service.category} />
+                  <div 
+                    itemProp="provider" 
+                    itemScope 
+                    itemType="https://schema.org/Organization"
+                  >
+                    <meta itemProp="name" content="AJ Marketing" />
+                  </div>
+                  
+                  <article className="relative bg-white/95 backdrop-blur-md rounded-3xl p-6 lg:p-8 border border-gray-200/60 shadow-lg hover:shadow-2xl transition-all duration-500 h-full overflow-hidden">
                     {/* Background gradient on hover */}
                     <div 
                       className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"
@@ -312,7 +455,7 @@ export default function ServicesPage() {
                       className="absolute bottom-4 left-4 w-2 h-2 rounded-full opacity-40"
                       style={{ backgroundColor: service.color }}
                     />
-                  </div>
+                  </article>
                 </motion.div>
               ))}
             </div>
@@ -588,7 +731,7 @@ export default function ServicesPage() {
         )}
       </AnimatePresence>
 
-     
-    </div>
-  )
-}
+        </div>
+      </>
+    )
+  }

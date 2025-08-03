@@ -24,6 +24,57 @@ import {
   MessageSquare
 } from "lucide-react"
 
+// SEO Metadata for Partners Page
+export const metadata = {
+  title: "شركاؤنا - AJ Marketing | شراكات استراتيجية مع أبرز المؤسسات السعودية",
+  description: "تعرف على شركاء النجاح في AJ Marketing من المؤسسات الحكومية والشركات الرائدة في المملكة العربية السعودية. شراكات استراتيجية في مختلف القطاعات التجارية والتعليمية والإعلامية.",
+  keywords: [
+    "شركاء AJ Marketing",
+    "شراكات استراتيجية",
+    "مؤسسات سعودية",
+    "شركات رائدة",
+    "وزارة البيئة والمياه والزراعة",
+    "جامعة تبوك",
+    "غرفة تبوك التجارية",
+    "موهبة",
+    "Athens Coffee",
+    "Point Card",
+    "هيئة الصحفيين السعوديين",
+    "النادي الوطني السعودي",
+    "مزارع أسترا",
+    "مركز الملك عبدالعزيز للحوار الوطني",
+    "شراكات تجارية",
+    "عملاء مميزون"
+  ].join(", "),
+  author: "AJ Marketing",
+  robots: "index, follow",
+  openGraph: {
+    title: "شركاؤنا - AJ Marketing | شراكات النجاح مع أبرز المؤسسات",
+    description: "شراكات استراتيجية مع أبرز المؤسسات والشركات الرائدة في المملكة العربية السعودية",
+    type: "website",
+    url: "https://ajmarketing.sa/partners",
+    siteName: "AJ Marketing",
+    images: [
+      {
+        url: "/images/partners-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "شركاء AJ Marketing"
+      }
+    ],
+    locale: "ar_SA"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "شركاؤنا - AJ Marketing",
+    description: "نفتخر بثقة عملائنا المميزين من أبرز المؤسسات والشركات في المملكة",
+    images: ["/images/partners-hero.jpg"]
+  },
+  alternates: {
+    canonical: "https://ajmarketing.sa/partners"
+  }
+}
+
 export default function PartnersPage() {
   const [selectedPartner, setSelectedPartner] = useState<any>(null)
   const [selectedCategory, setSelectedCategory] = useState("الكل")

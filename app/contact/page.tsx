@@ -1,6 +1,5 @@
 "use client"
 
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -9,6 +8,55 @@ import { Label } from "@/components/ui/label"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 import { useState } from "react"
 import { sub } from "date-fns"
+
+// SEO Metadata for Contact Page
+export const metadata = {
+  title: "تواصل معنا - AJ Marketing | استشارة مجانية وعروض أسعار مخصصة",
+  description: "تواصل مع فريق AJ Marketing للحصول على استشارة مجانية وعروض أسعار مخصصة. نحن هنا لمساعدتك في تحقيق أهدافك الرقمية. اتصل بنا عبر الهاتف، البريد الإلكتروني أو قم بزيارتنا في مكتبنا.",
+  keywords: [
+    "تواصل مع AJ Marketing",
+    "استشارة مجانية",
+    "عروض أسعار",
+    "خدمة عملاء",
+    "دعم فني",
+    "موقع الشركة",
+    "رقم الهاتف",
+    "البريد الإلكتروني",
+    "عنوان المكتب",
+    "ساعات العمل",
+    "تواصل فوري",
+    "طلب عرض سعر",
+    "استفسارات",
+    "خدمات تسويق رقمي"
+  ].join(", "),
+  author: "AJ Marketing",
+  robots: "index, follow",
+  openGraph: {
+    title: "تواصل معنا - AJ Marketing | نحن في خدمتكم",
+    description: "تواصل مع فريق AJ Marketing المتخصص للحصول على استشارة مجانية وحلول رقمية مخصصة",
+    type: "website",
+    url: "https://ajmarketing.sa/contact",
+    siteName: "AJ Marketing",
+    images: [
+      {
+        url: "/images/contact-hero.jpg",
+        width: 1200,
+        height: 630,
+        alt: "تواصل مع AJ Marketing"
+      }
+    ],
+    locale: "ar_SA"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "تواصل معنا - AJ Marketing",
+    description: "احصل على استشارة مجانية وعروض أسعار مخصصة من فريق AJ Marketing",
+    images: ["/images/contact-hero.jpg"]
+  },
+  alternates: {
+    canonical: "https://ajmarketing.sa/contact"
+  }
+}
 
 export default function ContactPage() {
 
