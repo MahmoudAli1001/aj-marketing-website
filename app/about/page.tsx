@@ -1,56 +1,10 @@
+
+
 "use client"
 
 import { Eye, Target, Users, Award, Sparkles, Heart, Zap, Trophy, Star, Lightbulb, Shield, CheckCircle } from "lucide-react"
 import { motion } from "framer-motion"
-
-// SEO Metadata for About Page
-export const metadata = {
-  title: "من نحن - AJ Marketing | شركة رائدة في التسويق الرقمي والحلول التقنية",
-  description: "تعرف على AJ Marketing، شركة متخصصة في التسويق الرقمي والحلول التقنية المبتكرة. نقدم خدمات تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. رؤيتنا وقيمنا وفريق العمل المتخصص.",
-  keywords: [
-    "من نحن AJ Marketing",
-    "شركة تسويق رقمي",
-    "حلول تقنية مبتكرة",
-    "فريق متخصص",
-    "رؤية ورسالة الشركة",
-    "قيم الشركة",
-    "خبرة في التسويق",
-    "شركة سعودية",
-    "تطوير مواقع",
-    "تصميم تطبيقات",
-    "إبداع وتميز",
-    "خدمات رقمية شاملة",
-    "فريق AJ Marketing",
-    "تاريخ الشركة"
-  ].join(", "),
-  author: "AJ Marketing",
-  robots: "index, follow",
-  openGraph: {
-    title: "من نحن - AJ Marketing | قصة النجاح والتميز",
-    description: "اكتشف قصة AJ Marketing وفريق العمل المتخصص في التسويق الرقمي والحلول التقنية المبتكرة",
-    type: "website",
-    url: "https://ajmarketing.sa/about",
-    siteName: "AJ Marketing",
-    images: [
-      {
-        url: "/images/about-hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "فريق AJ Marketing"
-      }
-    ],
-    locale: "ar_SA"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "من نحن - AJ Marketing",
-    description: "شركة رائدة في التسويق الرقمي والحلول التقنية المبتكرة",
-    images: ["/images/about-hero.jpg"]
-  },
-  alternates: {
-    canonical: "https://ajmarketing.sa/about"
-  }
-}
+import Head from "next/head"
 
 export default function AboutPage() {
   const values = [
@@ -85,7 +39,39 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="min-h-screen">
+    <>
+      {/* SEO Head with metadata */}
+      <Head>
+        <title>من نحن - AJ Marketing | شركة رائدة في التسويق الرقمي والحلول التقنية</title>
+        <meta name="description" content="تعرف على AJ Marketing، شركة متخصصة في التسويق الرقمي والحلول التقنية المبتكرة. نقدم خدمات تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. رؤيتنا وقيمنا وفريق العمل المتخصص." />
+        <meta name="keywords" content="من نحن AJ Marketing, شركة تسويق رقمي, حلول تقنية مبتكرة, فريق متخصص, رؤية ورسالة الشركة, قيم الشركة, خبرة في التسويق, شركة سعودية, تطوير مواقع, تصميم تطبيقات, إبداع وتميز, خدمات رقمية شاملة, فريق AJ Marketing, تاريخ الشركة" />
+        <meta name="author" content="AJ Marketing" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="من نحن - AJ Marketing | قصة النجاح والتميز" />
+        <meta property="og:description" content="اكتشف قصة AJ Marketing وفريق العمل المتخصص في التسويق الرقمي والحلول التقنية المبتكرة" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ajmarketing.sa/about" />
+        <meta property="og:site_name" content="AJ Marketing" />
+        <meta property="og:image" content="/images/about-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="فريق AJ Marketing" />
+        <meta property="og:locale" content="ar_SA" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="من نحن - AJ Marketing" />
+        <meta name="twitter:description" content="شركة رائدة في التسويق الرقمي والحلول التقنية المبتكرة" />
+        <meta name="twitter:image" content="/images/about-hero.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://ajmarketing.sa/about" />
+      </Head>
+
+      <div className="min-h-screen">
       
       <main className="">
         {/* Enhanced Hero Section */}
@@ -593,6 +579,7 @@ export default function AboutPage() {
         </section>
       </main>
       
-    </div>
+      </div>
+    </>
   )
 }

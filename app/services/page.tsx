@@ -25,68 +25,6 @@ import {
   Globe
 } from "lucide-react"
 
-// SEO Metadata for Services Page
-export const metadata = {
-  title: "خدماتنا الرقمية - AJ Marketing | تصميم المواقع والتطبيقات والتسويق الإلكتروني",
-  description: "نقدم خدمات رقمية شاملة تشمل تصميم وبرمجة المواقع، تطوير تطبيقات الهواتف، التسويق الإلكتروني، التصاميم والإنفوجرافيك، التصوير والمونتاج. احصل على حلول رقمية احترافية مع فريق AJ Marketing المتخصص.",
-  keywords: [
-    "تصميم مواقع",
-    "برمجة تطبيقات", 
-    "تسويق إلكتروني",
-    "تصميم جرافيك",
-    "انفوجرافيك",
-    "تصوير فيديو",
-    "مونتاج",
-    "تحليل بيانات",
-    "إدارة محتوى",
-    "تعليق صوتي",
-    "خدمات رقمية السعودية",
-    "شركة تسويق رقمي",
-    "تطوير مواقع الرياض",
-    "SEO",
-    "موشن جرافيك"
-  ].join(", "),
-  author: "AJ Marketing",
-  robots: "index, follow",
-  viewport: "width=device-width, initial-scale=1",
-  openGraph: {
-    title: "خدماتنا الرقمية - AJ Marketing | حلول رقمية شاملة ومتطورة",
-    description: "خدمات رقمية احترافية تشمل تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. نحول أحلامك الرقمية إلى واقع ملموس.",
-    type: "website",
-    url: "https://ajmarketing.sa/services",
-    siteName: "AJ Marketing",
-    images: [
-      {
-        url: "/images/services-hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "خدمات AJ Marketing الرقمية"
-      }
-    ],
-    locale: "ar_SA"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "خدماتنا الرقمية - AJ Marketing",
-    description: "حلول رقمية شاملة ومتطورة تواكب أحدث التطورات التقنية",
-    images: ["/images/services-hero.jpg"],
-    site: "@ajmarketing_sa"
-  },
-  alternates: {
-    canonical: "https://ajmarketing.sa/services",
-    languages: {
-      "ar-SA": "https://ajmarketing.sa/ar/services",
-      "en-US": "https://ajmarketing.sa/en/services"
-    }
-  },
-  other: {
-    "theme-color": "#36a1d7",
-    "apple-mobile-web-app-capable": "yes",
-    "apple-mobile-web-app-status-bar-style": "default",
-    "format-detection": "telephone=no"
-  }
-}
-
 export default function ServicesPage() {
   const [selectedService, setSelectedService] = useState<any>(null)
 
@@ -234,7 +172,49 @@ export default function ServicesPage() {
 
   return (
     <>
-      {/* SEO Head with Structured Data */}
+      {/* SEO Head with metadata */}
+      <Head>
+        <title>خدماتنا الرقمية - AJ Marketing | تصميم المواقع والتطبيقات والتسويق الإلكتروني</title>
+        <meta name="description" content="نقدم خدمات رقمية شاملة تشمل تصميم وبرمجة المواقع، تطوير تطبيقات الهواتف، التسويق الإلكتروني، التصاميم والإنفوجرافيك، التصوير والمونتاج. احصل على حلول رقمية احترافية مع فريق AJ Marketing المتخصص." />
+        <meta name="keywords" content="تصميم مواقع, برمجة تطبيقات, تسويق إلكتروني, تصميم جرافيك, انفوجرافيك, تصوير فيديو, مونتاج, تحليل بيانات, إدارة محتوى, تعليق صوتي, خدمات رقمية السعودية, شركة تسويق رقمي, تطوير مواقع الرياض, SEO, موشن جرافيك" />
+        <meta name="author" content="AJ Marketing" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="خدماتنا الرقمية - AJ Marketing | حلول رقمية شاملة ومتطورة" />
+        <meta property="og:description" content="خدمات رقمية احترافية تشمل تصميم المواقع، تطوير التطبيقات، التسويق الإلكتروني، والتصميم الإبداعي. نحول أحلامك الرقمية إلى واقع ملموس." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ajmarketing.sa/services" />
+        <meta property="og:site_name" content="AJ Marketing" />
+        <meta property="og:image" content="/images/services-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="خدمات AJ Marketing الرقمية" />
+        <meta property="og:locale" content="ar_SA" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="خدماتنا الرقمية - AJ Marketing" />
+        <meta name="twitter:description" content="حلول رقمية شاملة ومتطورة تواكب أحدث التطورات التقنية" />
+        <meta name="twitter:image" content="/images/services-hero.jpg" />
+        <meta name="twitter:site" content="@ajmarketing_sa" />
+        
+        {/* Additional meta tags */}
+        <meta name="theme-color" content="#36a1d7" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="format-detection" content="telephone=no" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://ajmarketing.sa/services" />
+        
+        {/* Alternative languages */}
+        <link rel="alternate" hrefLang="ar-SA" href="https://ajmarketing.sa/ar/services" />
+        <link rel="alternate" hrefLang="en-US" href="https://ajmarketing.sa/en/services" />
+      </Head>
+
+      {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

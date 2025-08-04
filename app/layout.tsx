@@ -100,12 +100,14 @@ export const metadata = {
   generator: "Next.js",
   applicationName: "AJ Marketing Website",
   referrer: "origin-when-cross-origin",
+  manifest: "/site.webmanifest",
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
   colorScheme: "light",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
 }
 
 export default function RootLayout({

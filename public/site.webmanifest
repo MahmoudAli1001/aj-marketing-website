@@ -1,0 +1,72 @@
+{
+  "name": "AJ Marketing | حلول التسويق الرقمي والتصميم الإبداعي",
+  "short_name": "AJ Marketing",
+  "description": "شباب سعوديين متخصصون في التسويق الرقمي، تصميم المواقع، تطوير التطبيقات، والتصوير الاحترافي",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#36a1d7",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ar",
+  "dir": "rtl",
+  "categories": ["business", "marketing", "technology"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "خدماتنا",
+      "short_name": "الخدمات",
+      "description": "تصفح خدماتنا الرقمية",
+      "url": "/services",
+      "icons": [{ "src": "/images/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "من نحن",
+      "short_name": "عنا",
+      "description": "تعرف على فريق AJ Marketing",
+      "url": "/about",
+      "icons": [{ "src": "/images/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "تواصل معنا",
+      "short_name": "اتصال",
+      "description": "تواصل مع فريقنا",
+      "url": "/contact",
+      "icons": [{ "src": "/images/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/images/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "AJ Marketing Homepage"
+    },
+    {
+      "src": "/images/screenshot-mobile.png", 
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "AJ Marketing Mobile View"
+    }
+  ]
+}

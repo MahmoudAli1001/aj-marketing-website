@@ -1,7 +1,10 @@
+
+
 "use client"
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import Head from "next/head"
 import { 
   Building2, 
   Award, 
@@ -23,57 +26,6 @@ import {
   Phone,
   MessageSquare
 } from "lucide-react"
-
-// SEO Metadata for Partners Page
-export const metadata = {
-  title: "شركاؤنا - AJ Marketing | شراكات استراتيجية مع أبرز المؤسسات السعودية",
-  description: "تعرف على شركاء النجاح في AJ Marketing من المؤسسات الحكومية والشركات الرائدة في المملكة العربية السعودية. شراكات استراتيجية في مختلف القطاعات التجارية والتعليمية والإعلامية.",
-  keywords: [
-    "شركاء AJ Marketing",
-    "شراكات استراتيجية",
-    "مؤسسات سعودية",
-    "شركات رائدة",
-    "وزارة البيئة والمياه والزراعة",
-    "جامعة تبوك",
-    "غرفة تبوك التجارية",
-    "موهبة",
-    "Athens Coffee",
-    "Point Card",
-    "هيئة الصحفيين السعوديين",
-    "النادي الوطني السعودي",
-    "مزارع أسترا",
-    "مركز الملك عبدالعزيز للحوار الوطني",
-    "شراكات تجارية",
-    "عملاء مميزون"
-  ].join(", "),
-  author: "AJ Marketing",
-  robots: "index, follow",
-  openGraph: {
-    title: "شركاؤنا - AJ Marketing | شراكات النجاح مع أبرز المؤسسات",
-    description: "شراكات استراتيجية مع أبرز المؤسسات والشركات الرائدة في المملكة العربية السعودية",
-    type: "website",
-    url: "https://ajmarketing.sa/partners",
-    siteName: "AJ Marketing",
-    images: [
-      {
-        url: "/images/partners-hero.jpg",
-        width: 1200,
-        height: 630,
-        alt: "شركاء AJ Marketing"
-      }
-    ],
-    locale: "ar_SA"
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "شركاؤنا - AJ Marketing",
-    description: "نفتخر بثقة عملائنا المميزين من أبرز المؤسسات والشركات في المملكة",
-    images: ["/images/partners-hero.jpg"]
-  },
-  alternates: {
-    canonical: "https://ajmarketing.sa/partners"
-  }
-}
 
 export default function PartnersPage() {
   const [selectedPartner, setSelectedPartner] = useState<any>(null)
@@ -321,7 +273,39 @@ export default function PartnersPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br ">
+    <>
+      {/* SEO Head with metadata */}
+      <Head>
+        <title>شركاؤنا - AJ Marketing | شراكات استراتيجية مع أبرز المؤسسات السعودية</title>
+        <meta name="description" content="تعرف على شركاء النجاح في AJ Marketing من المؤسسات الحكومية والشركات الرائدة في المملكة العربية السعودية. شراكات استراتيجية في مختلف القطاعات التجارية والتعليمية والإعلامية." />
+        <meta name="keywords" content="شركاء AJ Marketing, شراكات استراتيجية, مؤسسات سعودية, شركات رائدة, وزارة البيئة والمياه والزراعة, جامعة تبوك, غرفة تبوك التجارية, موهبة, Athens Coffee, Point Card, هيئة الصحفيين السعوديين, النادي الوطني السعودي, مزارع أسترا, مركز الملك عبدالعزيز للحوار الوطني, شراكات تجارية, عملاء مميزون" />
+        <meta name="author" content="AJ Marketing" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="شركاؤنا - AJ Marketing | شراكات النجاح مع أبرز المؤسسات" />
+        <meta property="og:description" content="شراكات استراتيجية مع أبرز المؤسسات والشركات الرائدة في المملكة العربية السعودية" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ajmarketing.sa/partners" />
+        <meta property="og:site_name" content="AJ Marketing" />
+        <meta property="og:image" content="/images/partners-hero.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="شركاء AJ Marketing" />
+        <meta property="og:locale" content="ar_SA" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="شركاؤنا - AJ Marketing" />
+        <meta name="twitter:description" content="نفتخر بثقة عملائنا المميزين من أبرز المؤسسات والشركات في المملكة" />
+        <meta name="twitter:image" content="/images/partners-hero.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://ajmarketing.sa/partners" />
+      </Head>
+
+      <div className="min-h-screen bg-gradient-to-br ">
      
       
       <main className="">
@@ -790,6 +774,7 @@ export default function PartnersPage() {
       </AnimatePresence>
 
      
-    </div>
+      </div>
+    </>
   )
 }
