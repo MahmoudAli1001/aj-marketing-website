@@ -1,6 +1,6 @@
 {
   "name": "aj-marketing-website",
-  "author":"Mahmoud Ali, & soft Masters",
+  "author": "Mahmoud Ali, & soft Masters",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -51,6 +51,7 @@
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "14.2.16",
+    "next-pwa": "^5.6.0",
     "next-themes": "^0.4.4",
     "react": "^18",
     "react-day-picker": "9.8.0",
