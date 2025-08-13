@@ -26,10 +26,12 @@ import {
   Phone,
   MessageSquare
 } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export default function PartnersPage() {
   const [selectedPartner, setSelectedPartner] = useState<any>(null)
   const [selectedCategory, setSelectedCategory] = useState("الكل")
+  const router = useRouter()
 
   const partners = [
     {
@@ -199,7 +201,42 @@ export default function PartnersPage() {
       services: ["تصميم الجرافيك", "الرسوم المتحركة", "التسويق الإبداعي"],
       testimonial: "إبداع وتميز في كل مشروع نتعاون فيه",
       color: "#6B7280"
-    }
+    },
+    {
+      name: "هيئة الهلال الأحمر السعودي",
+      logo: "/images/partners/logo_AJ (16).svg",
+      category: "حكومي",
+      description: "شراكة استراتيجية لدعم خدمات الإسعاف والرعاية الصحية الطارئة رقمياً",
+      establishedYear: "2022",
+      location: "الرياض",
+      projects: 10,
+      services: ["أنظمة الإسعاف الذكية", "التوعية الصحية الرقمية", "إدارة الفرق الميدانية"],
+      testimonial: "شراكة تقنية عززت سرعة الاستجابة وتحسين الخدمات الإسعافية",
+      color: "#ed252b"
+    },
+    {
+      name: "INUIT COLD BEVERAGE - SWEET",
+      logo: "/images/partners/logo_AJ (17) .png",
+      category: "تجاري",
+      description: "مشروب بارد بنكهة حلوة مستوحى من تقاليد الإنويت.",
+      establishedYear: "2024",
+      location: "جدة",
+      projects: 3,
+      services: ["تطوير المنتج", "التسويق الرقمي", "إدارة العلامة التجارية"],
+      testimonial: "منتج فريد يجمع بين الأصالة والطعم العصري.",
+      color: "#4579a9"
+    },{
+      name: "ريباس كَافييه",
+      logo: "/images/partners/logo_AJ (18).jpeg",
+      category: "تجاري",
+      description: "مقهى عصري يقدم أفضل أنواع القهوة المختصة.",
+      establishedYear: "2022",
+      location: "جدة",
+      projects: 5,
+      services: ["تطبيق الطلبات", "إدارة الفروع", "التسويق الرقمي"],
+      testimonial: "تجربة رائعة في تطوير العلامة التجارية وزيادة العملاء.",
+      color: "#A16207"
+    },
   ]
 
   const categories = ["الكل", "حكومي", "تجاري", "تعليمي", "إعلامي", "زراعي", "رياضي", "إبداعي"]
@@ -595,17 +632,13 @@ export default function PartnersPage() {
                 انضم إلى قائمة شركائنا المتميزين واحصل على خدمات استثنائية تحقق أهدافك التجارية
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+               
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-white text-[#36a1d7] px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  <Phone className="w-5 h-5" />
-                  ابدأ الشراكة الآن
-                </motion.button>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  onClick={()=>{
+                      router.push("/contact")
+                    }}
                   className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#36a1d7] transition-all duration-300 flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="w-5 h-5" />
@@ -748,24 +781,16 @@ export default function PartnersPage() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={()=>{
+                      router.push("/contact")
+                    }}
                     className="flex-1 py-4 px-6 rounded-xl text-white font-semibold shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
                     style={{ backgroundColor: selectedPartner?.color }}
                   >
                     <Handshake className="w-5 h-5" />
                     ابدأ شراكة مماثلة
                   </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex-1 py-4 px-6 border-2 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2"
-                    style={{ 
-                      borderColor: selectedPartner?.color,
-                      color: selectedPartner?.color
-                    }}
-                  >
-                    <MessageSquare className="w-5 h-5" />
-                    تواصل معنا
-                  </motion.button>
+                 
                 </div>
               </div>
             </motion.div>

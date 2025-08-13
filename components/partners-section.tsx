@@ -90,8 +90,22 @@ export function PartnersSection() {
       logo: "/images/partners/logo_AJ (15).png",
       category: "إبداعي",
       description: "إبداع في التصميم والفن",
-    },
-    
+    },{
+      name:"الهلال الأحمر السعودي",
+      logo: "/images/partners/logo_AJ (16).svg",
+      category: "حكومي",
+      description: "شراكة استراتيجية لدعم خدمات الإسعاف والرعاية الصحية الطارئة رقمياً",
+    },{
+      name: "INUIT COLD BEVERAGE - SWEET",
+      logo: "/images/partners/logo_AJ (17) .png",
+      category: "تجاري",
+      description: "مشروب بارد بنكهة حلوة مستوحى من تقاليد الإنويت.",
+    },{
+      name: "ريباس كَافييه",
+      logo: "/images/partners/logo_AJ (18).jpeg",
+      category: "تجاري",
+      description: "علامة تجارية متميزة في صناعة القهوة",
+    }
   ]
 
   const achievements = [
